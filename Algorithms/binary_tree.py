@@ -64,6 +64,46 @@ class tree:
             return self._search(data, cur_node.right)
         else:
             return None
+    
+    def preorder(self):
+        if self.root != None:
+            self._preorder(self.root)
+        else:
+            return None
+    
+    def _preorder(self, cur_node):
+        if cur_node != None:
+            print(str(cur_node.data))
+            self._preorder(cur_node.left)
+            self._preorder(cur_node.right)
+        else:
+            return None
+    
+    def postorder(self):
+        if self.root != None:
+            self._postorder(self.root)
+        else:
+            return None
+    def _postorder(self, cur_node):
+        if cur_node != None:
+            self._postorder(cur_node.left)
+            self._postorder(cur_node.right)
+            print(str(cur_node.data))
+        else:
+            return None
+    
+    def inorder(self):
+        if self.root != None:
+            self._inorder(self.root)
+        else:
+            return None
+    def _inorder(self, cur_node):
+        if cur_node != None:
+            self._inorder(cur_node.left)
+            print(str(cur_node.data))
+            self._inorder(cur_node.right)
+        else:
+            return None
 
 if __name__ == 'main':
     my_tree = tree()
@@ -78,3 +118,6 @@ if __name__ == 'main':
     print(my_tree.height())
     print(my_tree.search(17))
     print(my_tree.search(11))
+    my_tree.preorder()
+    my_tree.postorder()
+    my_tree.inorder()
